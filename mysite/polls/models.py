@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 class Airport():
 
-    
+
     def get_id(self):
         return self.id
 
@@ -16,8 +16,8 @@ class Airport():
         data = []
         data.append(input)
 
-        count_Vector = CountVectorizer()
-        X = count_Vector.fit_transform(data)
+        count_Vector = CountVectorizer(vocabulary=pickle.load(open("feature.pkl", "rb")))
+        X = count_Vector.transform(data)
 
 
 
