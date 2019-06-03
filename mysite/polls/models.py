@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 # a model for an airport
 
 class Airport():
+
     
     def get_id(self):
         return self.id
