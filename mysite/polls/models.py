@@ -28,17 +28,23 @@ class SentimentAnalysisModel():
         # Data for plotting
 
         return yp
+
+
 class SpamDetectionModel():
 
     def get_code(self, input):
-        filename = 'finalized_Spam_model.sav'
+        filename = 'finalized_model_spam.sav'
         data = []
         data.append(input)
 
-        count_Vector = CountVectorizer(vocabulary=pickle.load(open("feature_Spam.pkl", "rb")))
+        count_Vector = CountVectorizer(vocabulary=pickle.load(open("feature_spam.pkl", "rb")))
         X = count_Vector.transform(data)
+        feature_names = count_Vector.get_feature_names()
 
         loaded_model = pickle.load(open(filename, 'rb'))
         yp = loaded_model.predict(X)
+
+        mglearn.tools.visualize_coefficients(loaded_model.coef_, feature_names, n_top_features=25)
+        plt.savefig('polls/static/freq.png')
 
         return yp
