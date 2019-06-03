@@ -29,15 +29,14 @@
 	Result is <u>{{distance}} </u>.
 	</h1>
 
-	
-	{% autoescape off %}
-	<div>{{ fig }}</div>
-	{% endautoescape %}
+	{% load static %}
+    <img src="{% static "freq.png" %}" alt="My image">
 
 
 	<br>
 
 	<b><a href="/polls/test/">back</a></b>
+
 
 </div>
 

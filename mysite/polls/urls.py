@@ -9,5 +9,6 @@ from .views import formview
 
 urlpatterns = [
     # main view of the app
-    url(r'^test/$', formview),
+    #url(r'^test/', formview),
+    url(r'/', formview),
 ]
