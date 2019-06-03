@@ -1,28 +1,5 @@
 {% block titleblock %}
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"
- type="text/css" media="all" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" 
- type="text/javascript">
-</script> <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" 
- type="text/javascript"></script>
-
-<!-- Proper style would be to put this stuff in its own .js file, but I'm going to be lazy -->
-<script> 
-	$(document).ready(function() {
-		console.log("Testing ...");
-
-		$(function() {
-		  $("#id_code1").autocomplete({
-		    source: "/polls/get_names/",
-		    minLength: 2,
-		  });
-		});
-
-
-
-	}); 
-</script>
 
 {% endblock %}
 
@@ -39,7 +16,7 @@
 <div class="text2">
 
 	<h3>
-	Sentiment Analysis
+	cs256sp19 Final Project
 	</h3>
 
 	<form action="/polls/test/" method="post">{% csrf_token %}
