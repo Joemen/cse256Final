@@ -29,13 +29,16 @@ def formview(request):
             code2 = form.cleaned_data['code2']
 
             #mydist = Airport.objects.get()
-
+            #mylat1 = Airport.get_code(Airport)
             #mylat1 = Airport.objects.get(code=code1)
             #mylat2 = Airport.objects.get(code=code2)
 
-            mydist = code1 + " " + code2
+            #mydist = code1 + " " + code2
             #mydist = 3.14
-            return render(request, 'polls/out.html', {'distance':mydist})
+            a = Airport()
+            mylat1 = a.get_code(code1)
+
+            return render(request, 'polls/out.html', {'distance':mylat1})
 
             """
             # if not, go to "fail" page
