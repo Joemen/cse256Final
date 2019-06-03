@@ -1,8 +1,6 @@
 {% block titleblock %}
 
-<title>Oliver | Airapp</title> 
-
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"
  type="text/css" media="all" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" 
  type="text/javascript">
@@ -21,12 +19,7 @@
 		  });
 		});
 
-		$(function() {
-		  $("#id_code2").autocomplete({
-		    source: "/polls/get_names/",
-		    minLength: 2,
-		  });
-		});
+
 
 	}); 
 </script>
@@ -35,10 +28,7 @@
 
 {% block sidebar %} 
 
-	<b><a href='/'>HOME</a></b>
-	<br>
-	<br>
-	<b><a href='/article/all/'>Sitemap</a></b>
+	<b><a href='/polls/test/'>HOME</a></b>
 	<br>
 	<br>
 
@@ -48,37 +38,19 @@
 
 <div class="text2">
 
-	<h2>Airport App <i>(Testing 1, 2, 3 ...)</i></h2>
-	<br>
-
 	<h3>
-	To find the distance in miles between two airports, 
-	enter two U.S. cities below and select the airport codes 
-	from the lists that appear.
+	Sentiment Analysis
 	</h3>
-
-	Example entries:
-	<ul>
-	<li>NewYork,NY-Kennedy <b>JFK</b></li>
-	<li>LosAngeles,CA <b>LAX</b></li>
-	<li>Chicago,IL-O'Hare <b>ORD</b></li>
-	</ul>
-
-	<br>
 
 	<form action="/polls/test/" method="post">{% csrf_token %}
 
 		<p>
 		<div class="ui-widget">
-		<label for="id_code1">Code1:</label>
-		<input id="id_code1" type="text" name="code1" maxlength="100" />
-		</div>
-		</p>
-
-		<p>
-		<div class="ui-widget">
-		<label for="id_code2">Code2:</label>
-		<input id="id_code2" type="text" name="code2" maxlength="100" />
+		<label for="id_code1"></label>
+		<textarea rows="10" cols="50" id="id_code1" type="text" name="code1" maxlength="500"></textarea>
+		<br>
+		<input type="checkbox" name="checkbox" value="1" checked> Sentiment Analysis<br>
+  		<input type="checkbox" name="checkbox" value="2" > Spam detection<br>
 		</div>
 		</p>
 
@@ -86,14 +58,14 @@
 
 	</form>
 
-	<br>
-	<br>
+
+
 
 </div>
 
 {% endblock %}
 
 {% block footer %}
-<small>© 2014 Oliver</small>
+<small>© 2019 cs256Sp19 Group 75</small>
   
 {% endblock %}
