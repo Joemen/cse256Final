@@ -22,9 +22,12 @@ def formview(request):
 
             # first airport code
             code1 = form.cleaned_data['code1']
-            checkbox = request.POST.getlist('checkbox')
+            checkbox = request.POST.getlist('radio')
 
             # checkbox = ['1'] Sentiment Analysis
+            print(checkbox)
+            print(type(checkbox))
+
             if len(checkbox) == 1 and checkbox[0] == '1':
                 sa = SentimentAnalysisModel()
                 mylat1 = sa.get_code(code1)
