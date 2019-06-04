@@ -4,6 +4,10 @@
     padding: 20px 20px 20px 40px;
 }
 
+.report {
+    margin-left: 20px;
+}
+
 .page_last {
     background-color: #006A96;
     margin-bottom: 50%;
@@ -27,3 +31,4 @@ small {
     color: #FFCD00;
     font-family: 'Lobster';
 }
+

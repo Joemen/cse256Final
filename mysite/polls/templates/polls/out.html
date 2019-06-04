@@ -1,48 +1,40 @@
+{% load static %}
 {% block titleblock %}
 <title>cs256Sp19 | Group 75</title>
 {% endblock %}
 
-{% block sidebar %} 
-
-<div class="text2">
-
-	<b><a href='/polls/test/'>HOME</a></b>
-	<br>
-	<br>
-</div>
-
-{% endblock %}  
+{% block sidebar %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+{% endblock %}
 
 {% block content %}
 
 <div class="text2">
+	<div class="page-header">
+	    <h1>CSE256SP19 Final Project</h1>
+	</div>
 
-	<br> <br>
+	<div class="report">
+
+		<h3> Result:</h3>
+		<h4>Input is <u>{{input}} </u>.</h4>
+		<h4>Result is <u>{{distance}} </u>.</h4>
+
+		<h6>In the sentiment analysis, here are the words with largest weights: </h6>
+		<img src="{% static "freq.png" %}" height="420" width="800" alt="My image">
+	</div>
 	<br>
-	<br>
-
-	<h1>
-	Input is <u>{{input}} </u>.
-	</h1>
-
-	<h1>
-	Result is <u>{{distance}} </u>.
-	</h1>
-
-	{% load static %}
-    <img src="{% static "freq.png" %}" alt="My image">
-
-
-	<br>
-
 	<b><a href="/polls/test/">back</a></b>
-
-
 </div>
 
 {% endblock %}
 
 {% block footer %}
-<small>© 2019 cs256Sp19 Group 75</small>
+
+<div class="page_last">
+	<small>© 2019 CSE256SP19 Group75</small>
+</div>
   
 {% endblock %}
