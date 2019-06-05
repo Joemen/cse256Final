@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
     <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="{% static "ASCIIMathML.js"%}"></script>
 {% endblock %}
 
 {% block content %}
@@ -19,11 +20,26 @@
 	<div class="report">
 
 		<h3> Result:</h3>
-		<h4>Input is <u>{{input}} </u>.</h4>
-		<h4>Result is <u>{{distance}} </u>.</h4>
+		<h4>Input: <u>{{input}}</u>.</h4>
+		<h4>Result: <u>{{distance}}</u>.</h4>
+		<h4>Explanation: </h4>
+		<h6>Here are the list of words and their coresponding weights</h6>
+            {{table}}
+		<h6>Here is the plot showing the weights of the words in the test sentence: </h6>
+		<img src="{% static "word_weights.png" %}" height="420" width="800" alt="My image">
 
-		<h6>In the sentiment analysis, here are the words with largest weights: </h6>
-		<img src="{% static "freq.png" %}" height="420" width="800" alt="My image">
+        <h6>We can also use word cloud to see the 'power' of each word:</h6>
+        <img src="{% static "wordcloud.png" %}" height="420" width="800" alt="My image">
+
+
+		<h6>To implement logistic regression, we need `z = sum_(i=1)^n w_ix_i+b`</h6>
+		<h6>The value of x is transfromed from the vectorizer of the model</h6>
+		<h6>After the computation, we put the value of z into the sigmiod function `y=1/(1+e^-z)`, we have `y ={{pred}}` </h6>
+		<h6>Based on the rule `{(pred = {{ty}} if y < 0.5), (pred = not {{ty}} if y >= 0.5):}`, we can get our prediction.</h6>
+
+		<h6>By the way, in the <u>{{datatype}}</u>, here are the words with highest and lowest weights: </h6>
+		<img src="{% static "coefs.png" %}" height="420" width="800" alt="My image">
+
 	</div>
 	<br>
 	<b><a href="/polls/test/">back</a></b>
@@ -32,9 +48,7 @@
 {% endblock %}
 
 {% block footer %}
-
 <div class="page_last">
 	<small>© 2019 CSE256SP19 Group75</small>
 </div>
-  
 {% endblock %}

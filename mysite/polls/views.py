@@ -22,16 +22,15 @@ def formview(request):
 
             # first airport code
             code1 = form.cleaned_data['code1']
-            checkbox = request.POST.getlist('radio')
+            radio = request.POST.getlist('radio')
 
             # checkbox = ['1'] Sentiment Analysis
-            print(checkbox)
-            print(type(checkbox))
 
-            if len(checkbox) == 1 and checkbox[0] == '1':
+            if len(radio) == 1 and radio[0] == '1':
                 sa = SentimentAnalysisModel()
-                mylat1 = sa.get_code(code1)
-
+                mylat1, wl, proba = sa.get_code(code1)
+                datatype = "Sentiment Analysis"
+                ty = "positive"
                 if mylat1[0] == 1:
                     result = "Positive"
                 else:
@@ -39,13 +38,15 @@ def formview(request):
             # checkbox = ['2'] Spam detection
             else:
                 sa = SpamDetectionModel()
-                mylat1 = sa.get_code(code1)
+                mylat1, wl, proba = sa.get_code(code1)
+                datatype = "Spam Detection"
+                ty = "spam"
                 if mylat1[0] == 1:
                     result = "Spam"
                 else:
                     result = "Not Spam"
 
-            return render(request, 'polls/out.html', {'distance':result, 'input':code1})
+            return render(request, 'polls/out.html', {'ty':ty, 'pred':proba[0][0], 'table':wl, 'distance':result, 'input':code1, 'datatype':datatype})
 
 
     else:
